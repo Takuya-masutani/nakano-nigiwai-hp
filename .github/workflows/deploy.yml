@@ -21,6 +21,7 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./themes/themes/Custom/
           server-dir: /home/xs329254/nigiwaifesta.com/public_html/wp-content/themes/Custom/
+          dangerous-clean-slate: true
           exclude: |
             **/.git*
             **/.git*/**
