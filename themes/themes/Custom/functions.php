@@ -12,6 +12,12 @@ if ( !function_exists( 'hestia_child_parent_css' ) ){
 }
 add_action( 'wp_enqueue_scripts', 'hestia_child_parent_css');
 
+// so-cssより後に読み込んでフッター色を上書き
+function custom_footer_color_override() {
+    wp_add_inline_style( 'so-css-hestia-css', 'footer.footer.footer-black { background-color: #1a2a4a !important; }' );
+}
+add_action( 'wp_enqueue_scripts', 'custom_footer_color_override', 999 );
+
 /**
  * Import options from Hestia
  *
