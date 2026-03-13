@@ -1,0 +1,114 @@
+/*
+Theme Name: Custom_Template
+Template: hestia
+Description: Custom_Template繝��繝�.
+*/
+
+#booth_ws ul li {
+  font-size: 0.95em;
+  font-weight: 500;
+  border: 1px solid #d1e5ff;
+  padding: 1rem !important;
+  margin-top: 1rem;
+  background-color: #fafcff;
+}
+.menu {
+  padding: 1rem;
+  margin-top: 1rem;
+  background-color: #fffef8;
+  border: 1px solid #fff9db;
+}
+.menu dt {
+  margin-bottom: 1rem;
+}
+.menu ul li {
+  font-size: 0.95em;
+  text-indent: -1em;
+  margin-left: 1em;
+}
+.menu ul li::before {
+  content: "・";
+}
+.menu ul li + li {
+  margin-top: 0.5rem;
+}
+#about p{
+  word-break: keep-all;
+}
+
+#booth_ws > div {
+  display: flex;
+  flex-direction: column;
+}
+#booth_ws > div h4 {
+  flex-grow: 1;
+}
+#booth_ws > div .comment{
+  flex-grow: 1;
+}
+#booth_ws > div ul {
+  flex-shrink: 1;
+  margin-bottom: auto;
+}
+
+.grid3 > div {
+  display: flex;
+  flex-direction: column;
+}
+
+#booth_fd > div {
+  display: flex;
+  flex-direction: column;
+}
+#booth_fd > div .comment {
+  flex-grow: 1;
+}
+#booth_fd > div figure {
+  position: relative;
+}
+#booth_fd > div figcaption {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background-color: rgba(193, 21, 54, 0.9);
+  color: #fff;
+  padding: 0.25rem 0.5rem;
+}
+#booth_mrc > div {
+  display: flex;
+  flex-direction: column;
+}
+#booth_mrc > div figure {
+  position: relative;
+}
+#booth_mrc > div figcaption {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background-color: rgba(236, 122, 0, 0.9);
+  color: #fff;
+  padding: 0.25rem 0.5rem;
+}
+
+#booth_ws > div figure{
+  position: relative;
+}
+
+#booth_ws > div .annotation{
+  font-size: 1.4rem;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  display: block;
+  right: 0;
+  bottom: 0;
+  padding: 0.25rem 0.75rem;
+}
+#booth_ws > div figcaption {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background-color: rgba(66, 68, 238, 0.9);
+  color: #fff;
+  padding: 0.25rem 0.5rem;
+}
