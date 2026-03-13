@@ -4,6 +4,8 @@ Template: hestia
 Description: Custom_Templateテーマ.
 */
 
+footer { background-color: #1a4a2e !important; }
+
 
 /*Common-----------------------------*/
 body{
