@@ -1,4 +1,4 @@
-name: Deploy to Xserver (SSH)
+name: Deploy to Xserver (SFTP)
 
 on:
   push:
@@ -18,15 +18,21 @@ jobs:
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
-          ssh-keyscan -p 10022 sv14176.xserver.jp >> ~/.ssh/known_hosts
 
-      - name: rsyncでデプロイ
+      - name: lftp をインストール
+        run: sudo apt-get install -y lftp
+
+      - name: SFTPでデプロイ
         run: |
-          rsync -avz --delete \
-            --exclude='.git' \
-            --exclude='.github' \
-            --exclude='desktop.ini' \
-            --exclude='README.md' \
-            -e "ssh -p 10022 -i ~/.ssh/id_ed25519 -v -o StrictHostKeyChecking=no" \
-            ./themes/themes/Custom/ \
-            xs329254@sv14176.xserver.jp:/home/xs329254/nigiwaifesta.com/public_html/wp-content/themes/Custom/
+          lftp -c "
+            set sftp:connect-program 'ssh -a -x -i $HOME/.ssh/id_ed25519 -p 10022 -o StrictHostKeyChecking=no';
+            open sftp://xs329254@sv14176.xserver.jp;
+            mirror --reverse --delete --verbose \
+              --exclude-glob .git \
+              --exclude-glob .github \
+              --exclude desktop.ini \
+              --exclude README.md \
+              $GITHUB_WORKSPACE/themes/themes/Custom \
+              /home/xs329254/nigiwaifesta.com/public_html/wp-content/themes/Custom;
+            exit
+          "
