@@ -1,4 +1,4 @@
-name: Deploy to Xserver (FTP)
+name: Deploy to Xserver (SSH)
 
 on:
   push:
@@ -13,18 +13,20 @@ jobs:
       - name: リポジトリをチェックアウト
         uses: actions/checkout@v4
 
-      - name: FTPでデプロイ
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./themes/themes/Custom/
-          server-dir: /home/xs329254/nigiwaifesta.com/public_html/wp-content/themes/Custom/
-          dangerous-clean-slate: true
-          log-level: verbose
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/desktop.ini
-            README.md
+      - name: SSH鍵を設定
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -p 10022 sv14176.xserver.jp >> ~/.ssh/known_hosts
+
+      - name: rsyncでデプロイ
+        run: |
+          rsync -avz --delete \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='desktop.ini' \
+            --exclude='README.md' \
+            -e "ssh -p 10022 -i ~/.ssh/id_ed25519" \
+            ./themes/themes/Custom/ \
+            xs329254@sv14176.xserver.jp:/home/xs329254/nigiwaifesta.com/public_html/wp-content/themes/Custom/
