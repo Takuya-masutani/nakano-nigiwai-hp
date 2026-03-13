@@ -1,21 +1,28 @@
-name: Deploy to Xserver
+name: Deploy to Xserver (FTP)
 
 on:
   push:
     branches:
-      - main
+      - main  # mainブランチへのpush時に自動デプロイ
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
 
-      - name: FTP Deploy
+    steps:
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v4
+
+      - name: FTPでデプロイ
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: themes/themes/Custom/
-          server-dir: /nigiwaifesta.com/public_html/wp-content/themes/Custom/
+          local-dir: ./themes/themes/Custom/
+          server-dir: /home/xs329254/nigiwaifesta.com/public_html/wp-content/themes/Custom/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/desktop.ini
+            README.md
