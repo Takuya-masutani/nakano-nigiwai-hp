@@ -12,16 +12,13 @@ if ( !function_exists( 'hestia_child_parent_css' ) ){
 }
 add_action( 'wp_enqueue_scripts', 'hestia_child_parent_css');
 
-// customcss.css を最後に読み込む（so-cssより後）
+// customcss.css をWP追加CSSより後に出力（priority 999 = 追加CSSのpriority 101より後）
 function custom_load_customcss() {
-    wp_enqueue_style(
-        'custom-css-override',
-        get_stylesheet_directory_uri() . '/customcss.css',
-        array(),
-        filemtime( get_stylesheet_directory() . '/customcss.css' )
-    );
+    $ver = filemtime( get_stylesheet_directory() . '/customcss.css' );
+    $url = esc_url( get_stylesheet_directory_uri() . '/customcss.css?v=' . $ver );
+    echo '<link rel="stylesheet" href="' . $url . '">' . "\n";
 }
-add_action( 'wp_enqueue_scripts', 'custom_load_customcss', 9999 );
+add_action( 'wp_head', 'custom_load_customcss', 999 );
 
 /**
  * Import options from Hestia
