@@ -25,9 +25,9 @@ jobs:
       - name: SFTPでデプロイ
         run: |
           cat > /tmp/deploy.lftp << LFTP_EOF
-set sftp:connect-program "ssh -a -x -i $HOME/.ssh/id_ed25519 -p 10022 -o StrictHostKeyChecking=no"
-open sftp://xs329254@sv14176.xserver.jp
-mirror --reverse --delete --verbose $GITHUB_WORKSPACE/themes/themes/Custom /home/xs329254/nigiwaifesta.com/public_html/wp-content/themes/Custom
-exit
-LFTP_EOF
+          set sftp:connect-program "ssh -a -x -i $HOME/.ssh/id_ed25519 -p 10022 -o StrictHostKeyChecking=no"
+          open sftp://xs329254@sv14176.xserver.jp
+          mirror --reverse --delete --verbose $GITHUB_WORKSPACE/themes/themes/Custom /home/xs329254/nigiwaifesta.com/public_html/wp-content/themes/Custom
+          exit
+          LFTP_EOF
           lftp -f /tmp/deploy.lftp
