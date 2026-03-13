@@ -1,9 +1,9 @@
-name: Deploy to Xserver (SSH)
+name: Deploy to Xserver (SFTP)
 
 on:
   push:
     branches:
-      - main
+      - main  # mainブランチへのpush時に自動デプロイ
 
 jobs:
   deploy:
@@ -13,22 +13,26 @@ jobs:
       - name: リポジトリをチェックアウト
         uses: actions/checkout@v4
 
-      - name: SSH秘密鍵を設定
-        uses: webfactory/ssh-agent@v0.9.0
-        with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-
-      - name: known_hostsに追加
+      - name: SSH鍵を設定
         run: |
-          ssh-keyscan -p 10022 -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
 
-      - name: rsyncでデプロイ
+      - name: lftp をインストール
+        run: sudo apt-get install -y lftp
+
+      - name: SFTPでデプロイ
         run: |
-          rsync -avz --delete \
-            -e "ssh -p 10022" \
-            --exclude='.git/' \
-            --exclude='.github/' \
-            --exclude='desktop.ini' \
-            --exclude='README.md' \
-            themes/themes/Custom/ \
-            ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/xs329254/nigiwaifesta.com/public_html/wp-content/themes/Custom/
+          lftp -c "
+            set sftp:connect-program 'ssh -a -x -i $HOME/.ssh/id_ed25519 -p 10022 -o StrictHostKeyChecking=no';
+            open sftp://xs329254@sv14176.xserver.jp;
+            mirror --reverse --delete --verbose \
+              --exclude-glob .git \
+              --exclude-glob .github \
+              --exclude desktop.ini \
+              --exclude README.md \
+              $GITHUB_WORKSPACE/themes/themes/Custom \
+              /home/xs329254/nigiwaifesta.com/public_html/wp-content/themes/Custom;
+            exit
+          "
