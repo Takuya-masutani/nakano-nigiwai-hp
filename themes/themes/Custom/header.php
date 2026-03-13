@@ -74,7 +74,6 @@ if ( (bool) $hide_top_bar === false ) {
 	<script>
 	 new WOW().init();
 	</script>
-	<style>footer { background-color: #1a2a4a !important; }</style>
 </head>
 
 <body <?php if ( is_front_page() ) { ?>id="home" <?php } ?><?php body_class(); ?>>
