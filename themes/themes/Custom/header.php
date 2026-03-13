@@ -33,16 +33,14 @@ if ( (bool) $hide_top_bar === false ) {
 <head>
 	<meta charset='<?php bloginfo( 'charset' ); ?>'>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="thumbnail" content="<?php echo site_url() ?>/wp-content/uploads/2025/10/nigiwai_aki-1.png" alt="中野にぎわいフェスタ">
+	<meta name="thumbnail" content="<?php echo esc_url( site_url() ); ?>/wp-content/uploads/2025/10/nigiwai_aki-1.png" alt="中野にぎわいフェスタ">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<?php if ( is_singular() && pings_open( get_queried_object() ) ) : ?>
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 	<?php endif; ?>
 	<?php wp_head(); ?>
-	<script src="https://code.jquery.com/jquery-latest.js"></script>
-	<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-	<script src="<?php echo site_url() ?>/wp-content/uploads/jquery.easing.min.js"></script>
-	<script src="<?php echo site_url() ?>/wp-content/uploads/jquery.smoothScroll.js"></script>
+	<script src="<?php echo esc_url( site_url() ); ?>/wp-content/uploads/jquery.easing.min.js"></script>
+	<script src="<?php echo esc_url( site_url() ); ?>/wp-content/uploads/jquery.smoothScroll.js"></script>
 
 	<meta name="google-site-verification" content="jBzH4tmrUOX4F5AAXNDaHuwlzBfEKBOB5pzF5xvtAgU" />
 	<!-- Google tag (gtag.js) -->
@@ -71,8 +69,8 @@ if ( (bool) $hide_top_bar === false ) {
 		} );
 	} );
 	</script>
-	<script src="<?php echo site_url() ?>/wp-content/uploads/wow.min.js"></script>
-	<link rel="stylesheet" href="<?php echo site_url() ?>/wp-content/uploads/animate.css">
+	<script src="<?php echo esc_url( site_url() ); ?>/wp-content/uploads/wow.min.js"></script>
+	<link rel="stylesheet" href="<?php echo esc_url( site_url() ); ?>/wp-content/uploads/animate.css">
 	<script>
 	 new WOW().init();
 	</script>
