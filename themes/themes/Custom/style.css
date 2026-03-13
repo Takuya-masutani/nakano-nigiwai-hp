@@ -4,6 +4,11 @@ Template: hestia
 Description: Custom_Template繝��繝�.
 */
 
+/* フッター背景色 */
+footer.footer.footer-black {
+  background-color: #1a4a2e !important;
+}
+
 #booth_ws ul li {
   font-size: 0.95em;
   font-weight: 500;
