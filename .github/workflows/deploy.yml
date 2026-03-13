@@ -27,6 +27,6 @@ jobs:
             --exclude='.github' \
             --exclude='desktop.ini' \
             --exclude='README.md' \
-            -e "ssh -p 10022 -i ~/.ssh/id_ed25519" \
+            -e "ssh -p 10022 -i ~/.ssh/id_ed25519 -v -o StrictHostKeyChecking=no" \
             ./themes/themes/Custom/ \
             xs329254@sv14176.xserver.jp:/home/xs329254/nigiwaifesta.com/public_html/wp-content/themes/Custom/
