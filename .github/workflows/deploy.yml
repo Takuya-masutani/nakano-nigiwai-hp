@@ -1,9 +1,9 @@
-name: Deploy to Xserver (FTP)
+name: Deploy to Xserver (SSH)
 
 on:
   push:
     branches:
-      - main  # mainブランチへのpush時に自動デプロイ
+      - main
 
 jobs:
   deploy:
@@ -13,18 +13,22 @@ jobs:
       - name: リポジトリをチェックアウト
         uses: actions/checkout@v4
 
-      - name: FTPでデプロイ
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - name: SSH秘密鍵を設定
+        uses: webfactory/ssh-agent@v0.9.0
         with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./themes/themes/Custom/
-          server-dir: /home/xs329254/nigiwaifesta.com/public_html/wp-content/themes/Custom/
-          dangerous-clean-slate: true
-          log-level: verbose
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/desktop.ini
-            README.md
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: known_hostsに追加
+        run: |
+          ssh-keyscan -p 10022 -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+
+      - name: rsyncでデプロイ
+        run: |
+          rsync -avz --delete \
+            -e "ssh -p 10022" \
+            --exclude='.git/' \
+            --exclude='.github/' \
+            --exclude='desktop.ini' \
+            --exclude='README.md' \
+            themes/themes/Custom/ \
+            ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/xs329254/nigiwaifesta.com/public_html/wp-content/themes/Custom/
