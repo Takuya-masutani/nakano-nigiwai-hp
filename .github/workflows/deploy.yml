@@ -19,47 +19,15 @@ jobs:
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
 
-      - name: paramiko をインストール
-        run: pip install paramiko
+      - name: lftp をインストール
+        run: sudo apt-get install -y lftp
 
       - name: SFTPでデプロイ
-        env:
-          REMOTE_HOST: sv14176.xserver.jp
-          REMOTE_PORT: "10022"
-          REMOTE_USER: xs329254
-          REMOTE_DIR: /home/xs329254/nigiwaifesta.com/public_html/wp-content/themes/Custom
         run: |
-          python3 << 'PYEOF'
-          import paramiko
-          import os
-
-          key = paramiko.Ed25519Key.from_private_key_file(os.path.expanduser('~/.ssh/id_ed25519'))
-          transport = paramiko.Transport((os.environ['REMOTE_HOST'], int(os.environ['REMOTE_PORT'])))
-          transport.connect(username=os.environ['REMOTE_USER'], pkey=key)
-          sftp = paramiko.SFTPClient.from_transport(transport)
-
-          local_base = os.environ['GITHUB_WORKSPACE'] + '/themes/themes/Custom'
-          remote_base = os.environ['REMOTE_DIR']
-          exclude = {'.git', '.github', 'desktop.ini', 'README.md'}
-
-          def upload_dir(local_path, remote_path):
-              for item in os.listdir(local_path):
-                  if item in exclude:
-                      continue
-                  local_item = os.path.join(local_path, item)
-                  remote_item = remote_path + '/' + item
-                  if os.path.isdir(local_item):
-                      try:
-                          sftp.mkdir(remote_item)
-                      except OSError:
-                          pass
-                      upload_dir(local_item, remote_item)
-                  else:
-                      print(f'Uploading: {remote_item}')
-                      sftp.put(local_item, remote_item)
-
-          upload_dir(local_base, remote_base)
-          sftp.close()
-          transport.close()
-          print('Deploy complete!')
-          PYEOF
+          cat > /tmp/deploy.lftp << LFTP_EOF
+set sftp:connect-program "ssh -a -x -i $HOME/.ssh/id_ed25519 -p 10022 -o StrictHostKeyChecking=no"
+open sftp://xs329254@sv14176.xserver.jp
+mirror --reverse --delete --verbose $GITHUB_WORKSPACE/themes/themes/Custom /home/xs329254/nigiwaifesta.com/public_html/wp-content/themes/Custom
+exit
+LFTP_EOF
+          lftp -f /tmp/deploy.lftp
