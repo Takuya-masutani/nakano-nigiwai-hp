@@ -4,6 +4,7 @@ Template: hestia
 Description: Custom_Template繝��繝�.
 */
 
+@import url('customcss.css');
 
 #booth_ws ul li {
   font-size: 0.95em;
