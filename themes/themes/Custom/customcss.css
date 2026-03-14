@@ -1648,8 +1648,8 @@ flex-direction: column-reverse !important;
 #apply{
   background: center center/cover no-repeat url(/wp-content/uploads/2023/11/apply_bg.jpg?20250419);
   background-attachment: fixed;
-  padding-top: 10rem;
-  padding-bottom: 10rem;
+  padding-top: 0rem;
+  padding-bottom: 4rem;
   position: relative;
   z-index: 10;
 }
@@ -1675,7 +1675,7 @@ flex-direction: column-reverse !important;
   color: #826d00;
 }
 #apply .introduction {
-  margin-top: 5rem;
+  margin-top: 2rem;
 }
 #apply .introduction p{
   color: #333;
@@ -1683,7 +1683,7 @@ flex-direction: column-reverse !important;
   font-size: 1.8rem;
   font-weight: 600;
 	text-align: center;
-  line-height: 1.8;
+  line-height: 1.4;
   letter-spacing: 2px;
 }
 #apply .introduction p + p{
@@ -1751,5 +1751,9 @@ flex-direction: column-reverse !important;
     max-width: 100%;
     font-size: 17px;
     padding: 16px;
+  }
+
+  #apply .introduction p{
+    text-align: left;
   }
 }
