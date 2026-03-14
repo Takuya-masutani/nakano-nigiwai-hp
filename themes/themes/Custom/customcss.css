@@ -24,7 +24,7 @@ h4{font-size:1.2em;font-weight:bold;}
 	font-size:1.8rem;
   font-weight: 600;
 	text-align: center;
-	margin-bottom: 8rem;
+	margin-bottom: 4rem;
 }
 
 .zeikin-text{
@@ -390,8 +390,8 @@ margin: 0;
 #about{
   background: center center/cover no-repeat url(/wp-content/uploads/2023/11/about_bg.jpg?20250419);
   background-attachment: fixed;
-  padding-top: 10rem;
-  padding-bottom: 10rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
   position: relative;
   z-index: 10;
 }
@@ -1170,6 +1170,7 @@ flex-direction: column-reverse !important;
 
 /* 2025/4/5　追加 バックナンバー */
 #back_number{
+		margin-top: 4rem;
 		margin-bottom:4em;
 }
 #back_number h3{
