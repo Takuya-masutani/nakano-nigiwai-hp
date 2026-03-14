@@ -1,4 +1,4 @@
-name: Deploy to Xserver (SFTP)
+name: Deploy to Xserver
 
 on:
   push:
@@ -8,25 +8,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - name: リポジトリをチェックアウト
-        uses: actions/checkout@v4
-
-      - name: SSH鍵を設定
+      - name: デプロイフックを呼び出す
         run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
-          chmod 600 ~/.ssh/id_ed25519
-
-      - name: lftp をインストール
-        run: sudo apt-get install -y lftp
-
-      - name: SFTPでデプロイ
-        run: |
-          echo "set sftp:connect-program \"ssh -a -x -i $HOME/.ssh/id_ed25519 -p 10022 -o StrictHostKeyChecking=no\"" > /tmp/deploy.lftp
-          echo "open sftp://xs329254@sv14176.xserver.jp" >> /tmp/deploy.lftp
-          echo "mirror --reverse --delete --verbose $GITHUB_WORKSPACE/themes/themes/Custom /home/xs329254/nigiwaifesta.com/public_html/wp-content/themes/Custom" >> /tmp/deploy.lftp
-          echo "exit" >> /tmp/deploy.lftp
-          cat /tmp/deploy.lftp
-          lftp -f /tmp/deploy.lftp
+          curl -f "https://nigiwaifesta.com/wp-content/themes/Custom/deploy.php?token=nigiwaifesta_deploy_2026"
