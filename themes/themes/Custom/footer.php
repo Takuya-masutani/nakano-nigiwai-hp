@@ -31,7 +31,6 @@ new Swiper('.swiper-container', swipeOption);
 </script>
 
 <?php wp_footer(); ?>
-<link rel="stylesheet" href="<?php echo esc_url( get_stylesheet_directory_uri() . '/customcss.css?v=2' ); ?>">
 
 </body>
 </html>
