@@ -101,7 +101,47 @@ if ( (bool) $hide_top_bar === false ) {
 						<!-- スライド0枚目 -->
 						<div class="swiper-slide">
 							<div class="slide-img">
-								<img src="<?php echo esc_url( home_url( '/' ) ); ?>wp-content/uploads/2026/03/2026-spring-top.png" alt="中野にぎわいフェスタイベント写真">
+								<img src="<?php echo esc_url( home_url( '/' ) ); ?>wp-content/uploads/2026/03/2026-spring-top.png" alt="中野にぎわいフェスタ2026春">
+							</div>
+						</div>
+				<div class="swiper-slide">
+							<div class="slide-img">
+								<img src="<?php echo esc_url( home_url( '/' ) ); ?>wp-content/uploads/2026/03/2025春_001.jpg" alt="中野にぎわいフェスタ過去の様子">
+							</div>
+						</div>
+				<div class="swiper-slide">
+							<div class="slide-img">
+								<img src="<?php echo esc_url( home_url( '/' ) ); ?>wp-content/uploads/2026/03/2025春_002.jpg" alt="中野にぎわいフェスタ過去の様子">
+							</div>
+						</div>
+				<div class="swiper-slide">
+							<div class="slide-img">
+								<img src="<?php echo esc_url( home_url( '/' ) ); ?>wp-content/uploads/2026/03/2025春_003.jpg" alt="中野にぎわいフェスタ過去の様子">
+							</div>
+						</div>
+				<div class="swiper-slide">
+							<div class="slide-img">
+								<img src="<?php echo esc_url( home_url( '/' ) ); ?>wp-content/uploads/2026/03/2025春_004.jpg" alt="中野にぎわいフェスタ過去の様子">
+							</div>
+						</div>
+				<div class="swiper-slide">
+							<div class="slide-img">
+								<img src="<?php echo esc_url( home_url( '/' ) ); ?>wp-content/uploads/2026/03/2025春_005.jpg" alt="中野にぎわいフェスタ過去の様子">
+							</div>
+						</div>
+				<div class="swiper-slide">
+							<div class="slide-img">
+								<img src="<?php echo esc_url( home_url( '/' ) ); ?>wp-content/uploads/2026/03/2025春_006.jpg" alt="中野にぎわいフェスタ過去の様子">
+							</div>
+						</div>
+				<div class="swiper-slide">
+							<div class="slide-img">
+								<img src="<?php echo esc_url( home_url( '/' ) ); ?>wp-content/uploads/2026/03/2025春_007.jpg" alt="中野にぎわいフェスタ過去の様子">
+							</div>
+						</div>
+				<div class="swiper-slide">
+							<div class="slide-img">
+								<img src="<?php echo esc_url( home_url( '/' ) ); ?>wp-content/uploads/2026/03/2025春_008.jpg" alt="中野にぎわいフェスタ過去の様子">
 							</div>
 						</div>
 						
