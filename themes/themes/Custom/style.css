@@ -34,10 +34,6 @@ Description: Custom_Template繝��繝�.
 .menu ul li + li {
   margin-top: 0.5rem;
 }
-#about p{
-  word-break: keep-all;
-}
-
 #booth_ws > div {
   display: flex;
   flex-direction: column;
