@@ -1179,6 +1179,7 @@ flex-direction: column-reverse !important;
 }
 #back_number h3{
 	border-bottom: unset;
+	font-size: clamp(2.4rem, 3vw, 3.8rem);
 }
 #back_number h3 br {
   display: none;
