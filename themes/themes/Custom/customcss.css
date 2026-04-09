@@ -217,8 +217,9 @@ footer.footer.footer-black{
     padding: 0 3%;
   }
 	.oshirase{
-		font-size:1.0em;
+		font-size:0.9em;
 		text-align:left;
+		margin-bottom: 1rem;
 		}
 		.grid2{display:block;}
 
@@ -417,7 +418,7 @@ margin: 0;
   color: #826d00;
 }
 #about .introduction {
-  margin-top: 5rem;
+  margin-top: 2.5rem;
 }
 #about .introduction p{
   color: #333;
@@ -1013,7 +1014,7 @@ flex-direction: column-reverse !important;
 		background-attachment: unset;
 	}
   #about .introduction p{
-		font-size:1.0em;
+		font-size:0.9em;
 		line-height: 1.6;
     padding: 0 2%;
 		text-align: left;
