@@ -113,7 +113,7 @@ function custom_post_slider_shortcode() {
                                     </span>
                                 </div>
 								<div class="custom-post-title">
-									<?php echo esc_html( mb_strimwidth( get_the_title(), 0, 30, '…', 'UTF-8' ) ); ?>
+									<?php echo esc_html( get_the_title() ); ?>
 								</div>
                             </div>
                         </div>
