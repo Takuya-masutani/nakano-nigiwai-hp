@@ -78,7 +78,7 @@ function custom_post_slider_shortcode() {
     $args = array(
         'post_type' => 'post',
         'posts_per_page' => 10, // 表示する投稿数（調整してOK）
-        'category_name' => '2025aw', // ← ここでカテゴリを限定
+        'category_name' => '2026春', // ← ここでカテゴリを限定
     );
     $the_query = new WP_Query($args);
 
