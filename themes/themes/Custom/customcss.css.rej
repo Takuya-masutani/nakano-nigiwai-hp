@@ -1,0 +1,10 @@
+diff a/themes/themes/Custom/customcss.css b/themes/themes/Custom/customcss.css	(rejected hunks)
+@@ -20,8 +20,6 @@
+ 
+ h4{font-size:1.2em;font-weight:bold;}
+ 
+-.entry-content h3 { margin-top: 1rem; }
+-
+ .oshirase{
+ 	font-size:1.8rem;
+   font-weight: 600;
