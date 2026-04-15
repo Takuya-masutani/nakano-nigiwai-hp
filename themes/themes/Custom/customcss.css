@@ -6,13 +6,6 @@ Description: Custom_Templateテーマ.
 
 footer { background-color: #1a4a2e !important; }
 
-.custom-post-title {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
 
 /*Common-----------------------------*/
 body{
