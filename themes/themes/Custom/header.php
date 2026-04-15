@@ -101,7 +101,7 @@ if ( (bool) $hide_top_bar === false ) {
 						<!-- スライド0枚目 -->
 						<div class="swiper-slide">
 							<div class="slide-img">
-								<img src="<?php echo esc_url( home_url( '/' ) ); ?>wp-content/uploads/2026/03/2026-spring-top.png" alt="中野にぎわいフェスタ2026春">
+								<img src="<?php echo esc_url( home_url( '/' ) ); ?>wp-content/uploads/2026/04/nigiwaitop_2026haru.png" alt="中野にぎわいフェスタ2026春">
 							</div>
 						</div>
 				<div class="swiper-slide">
