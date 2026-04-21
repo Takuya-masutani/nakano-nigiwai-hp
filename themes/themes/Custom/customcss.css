@@ -1794,7 +1794,7 @@ flex-direction: column-reverse !important;
   display: flex;
   align-items: center;
   gap: 1rem;
-  border-radius: 6px 6px 0 0;
+  border-radius: 6px;
 }
 .tt-date-num {
   font-size: 4.5rem;
@@ -1820,8 +1820,6 @@ flex-direction: column-reverse !important;
 .tt-subheader {
   display: flex;
   background: #c6eccb;
-  border-left: 2px solid #1a4a2e;
-  border-right: 2px solid #1a4a2e;
 }
 .tt-sh-time {
   min-width: 82px;
@@ -1831,7 +1829,6 @@ flex-direction: column-reverse !important;
   font-weight: 700;
   font-size: 1.3rem;
   color: #1a4a2e;
-  border-right: 1px solid #90cfa6;
   flex-shrink: 0;
 }
 .tt-sh-content {
@@ -1841,18 +1838,11 @@ flex-direction: column-reverse !important;
   color: #1a4a2e;
 }
 .tt-body {
-  border: 2px solid #1a4a2e;
-  border-top: none;
-  border-radius: 0 0 6px 6px;
   overflow: hidden;
 }
 .tt-row {
   display: flex;
   align-items: stretch;
-  border-bottom: 1px solid #ddd;
-}
-.tt-row:last-child {
-  border-bottom: none;
 }
 .tt-time {
   min-width: 82px;
@@ -1866,7 +1856,6 @@ flex-direction: column-reverse !important;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-right: 1px solid #90cfa6;
   flex-shrink: 0;
 }
 .tt-content {
@@ -1875,8 +1864,10 @@ flex-direction: column-reverse !important;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: flex-start;
   min-width: 0;
   background: #fff;
+  text-align: left;
 }
 .tt-event {
   font-size: 1.5rem;
@@ -1884,12 +1875,14 @@ flex-direction: column-reverse !important;
   line-height: 1.4;
   margin: 0 !important;
   color: #333;
+  text-align: left;
 }
 .tt-performer {
   font-size: 1.3rem;
   color: #777;
   margin: 0.25rem 0 0 0 !important;
   line-height: 1.3;
+  text-align: left;
 }
 /* ステージ演目 */
 .tt-row.is-stage .tt-content { background: #e8f7e9; }
