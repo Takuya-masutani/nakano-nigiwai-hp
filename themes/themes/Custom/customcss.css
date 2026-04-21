@@ -1830,6 +1830,7 @@ flex-direction: column-reverse !important;
   font-size: 1.3rem;
   color: #1a4a2e;
   flex-shrink: 0;
+  border: none !important;
 }
 .tt-sh-content {
   padding: 0.6rem 1.2rem;
@@ -1851,12 +1852,13 @@ flex-direction: column-reverse !important;
   font-size: 1.4rem;
   font-weight: 700;
   color: #1a4a2e;
-  background: inherit;
+  background: #fff;
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  border: none !important;
 }
 .tt-content {
   padding: 0.9rem 1.2rem;
@@ -1888,19 +1890,24 @@ flex-direction: column-reverse !important;
 .tt-row { background: #fff; }
 /* ステージ演目 */
 .tt-row.is-stage { background: #e8f7e9; }
+.tt-row.is-stage .tt-time { background: #e8f7e9 !important; color: #1a4a2e; }
+.tt-row.is-stage .tt-content { background: #e8f7e9; }
 .tt-row.is-stage .tt-event { color: #1a4a2e; font-weight: 700; font-size: 1.6rem; }
-.tt-row.is-stage .tt-time { color: #1a4a2e; }
 /* 開会式・閉会式 */
 .tt-row.is-ceremony { background: #fffbea; }
+.tt-row.is-ceremony .tt-time { background: #fffbea !important; color: #7a5200; }
+.tt-row.is-ceremony .tt-content { background: #fffbea; }
 .tt-row.is-ceremony .tt-event { color: #7a5200; font-weight: 700; }
-.tt-row.is-ceremony .tt-time { color: #7a5200; }
 /* 出店ブース紹介・PR・告知 */
 .tt-row.is-booth { background: #fff; }
+.tt-row.is-booth .tt-time { background: #fff !important; color: #555; }
+.tt-row.is-booth .tt-content { background: #fff; }
 .tt-row.is-booth .tt-event { color: #555; }
 /* 観光大使ステージ */
 .tt-row.is-kanko { background: #f0f4ff; }
+.tt-row.is-kanko .tt-time { background: #f0f4ff !important; color: #1a3a6e; }
+.tt-row.is-kanko .tt-content { background: #f0f4ff; }
 .tt-row.is-kanko .tt-event { color: #1a3a6e; font-weight: 600; }
-.tt-row.is-kanko .tt-time { color: #1a3a6e; }
 @media screen and (max-width: 768px) {
   #stage-timetable .tt-days {
     flex-direction: column !important;
