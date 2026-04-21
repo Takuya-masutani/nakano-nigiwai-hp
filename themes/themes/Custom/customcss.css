@@ -1768,12 +1768,12 @@ flex-direction: column-reverse !important;
    ステージタイムテーブル
 =========================== */
 #stage-timetable {
-  width: 100vw !important;
+  width: 100% !important;
   max-width: none !important;
-  margin-left: calc(50% - 50vw) !important;
+  margin-left: 0 !important;
   margin-top: 2rem;
   margin-bottom: 2rem;
-  padding: 0 3rem;
+  padding: 0;
   box-sizing: border-box;
 }
 #stage-timetable .tt-days {
