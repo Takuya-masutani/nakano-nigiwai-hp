@@ -1794,7 +1794,7 @@ flex-direction: column-reverse !important;
   display: flex;
   align-items: center;
   gap: 1rem;
-  border-radius: 6px;
+  border-radius: 6px 6px 0 0;
 }
 .tt-date-num {
   font-size: 4.5rem;
