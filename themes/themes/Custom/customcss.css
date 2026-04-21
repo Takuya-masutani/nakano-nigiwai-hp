@@ -1768,8 +1768,9 @@ flex-direction: column-reverse !important;
    ステージタイムテーブル
 =========================== */
 #stage-timetable {
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
+  width: 100vw !important;
+  max-width: none !important;
+  margin-left: calc(50% - 50vw) !important;
   margin-top: 2rem;
   margin-bottom: 2rem;
   padding: 0 3rem;
