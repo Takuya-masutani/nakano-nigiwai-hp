@@ -1771,30 +1771,69 @@ flex-direction: column-reverse !important;
   width: 100%;
   margin: 2rem 0;
 }
-.tt-days {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+#stage-timetable .tt-days {
+  display: flex !important;
+  flex-direction: row !important;
   gap: 2rem;
+  align-items: flex-start;
   width: 100%;
+}
+#stage-timetable .tt-day {
+  flex: 1 1 0 !important;
+  min-width: 0 !important;
 }
 .tt-day-header {
   background: #1a4a2e;
   color: #fff;
-  padding: 1rem 1.2rem;
-  text-align: center;
+  padding: 1.2rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
   border-radius: 6px 6px 0 0;
 }
-.tt-date {
-  display: block;
-  font-size: 2.4rem;
-  font-family: "Kaisei Decol", serif;
+.tt-date-num {
+  font-size: 4.5rem;
   font-weight: 700;
+  font-family: "Kaisei Decol", serif;
+  line-height: 1;
+  flex-shrink: 0;
 }
-.tt-stage-label {
-  display: block;
-  font-size: 1.3rem;
+.tt-date-info {
+  display: flex;
+  flex-direction: column;
+}
+.tt-month {
+  font-size: 1.4rem;
   opacity: 0.85;
-  margin-top: 0.3rem;
+  display: block;
+}
+.tt-dow {
+  font-size: 2rem;
+  font-weight: 700;
+  display: block;
+}
+.tt-subheader {
+  display: flex;
+  background: #c6eccb;
+  border-left: 2px solid #1a4a2e;
+  border-right: 2px solid #1a4a2e;
+}
+.tt-sh-time {
+  min-width: 82px;
+  width: 82px;
+  padding: 0.6rem 0.5rem;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #1a4a2e;
+  border-right: 1px solid #90cfa6;
+  flex-shrink: 0;
+}
+.tt-sh-content {
+  padding: 0.6rem 1.2rem;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #1a4a2e;
 }
 .tt-body {
   border: 2px solid #1a4a2e;
@@ -1811,80 +1850,73 @@ flex-direction: column-reverse !important;
   border-bottom: none;
 }
 .tt-time {
-  min-width: 72px;
-  width: 72px;
-  padding: 0.9rem 0.4rem;
+  min-width: 82px;
+  width: 82px;
+  padding: 1rem 0.5rem;
   font-size: 1.4rem;
   font-weight: 700;
-  color: #444;
-  background: #f5f5f5;
+  color: #1a4a2e;
+  background: #c6eccb;
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-right: 1px solid #ccc;
+  border-right: 1px solid #90cfa6;
   flex-shrink: 0;
 }
 .tt-content {
   padding: 0.9rem 1.2rem;
   flex: 1;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+  background: #fff;
+}
+.tt-event {
   font-size: 1.5rem;
+  font-weight: 600;
   line-height: 1.4;
+  margin: 0 !important;
+  color: #333;
+}
+.tt-performer {
+  font-size: 1.3rem;
+  color: #777;
+  margin: 0.25rem 0 0 0 !important;
+  line-height: 1.3;
 }
 /* ステージ演目 */
-.tt-row.is-stage .tt-content {
-  background: #e8f7e9;
-  font-weight: 700;
-  color: #1a4a2e;
-  font-size: 1.6rem;
-}
-.tt-row.is-stage .tt-time {
-  background: #c6eccb;
-  color: #1a4a2e;
-}
+.tt-row.is-stage .tt-content { background: #e8f7e9; }
+.tt-row.is-stage .tt-event { color: #1a4a2e; font-weight: 700; font-size: 1.6rem; }
+.tt-row.is-stage .tt-time { background: #b3e0b7; color: #1a4a2e; border-right-color: #88c98e; }
 /* 開会式・閉会式 */
-.tt-row.is-ceremony .tt-content {
-  background: #fffbea;
-  color: #7a5200;
-  font-weight: 700;
-}
-.tt-row.is-ceremony .tt-time {
-  background: #fff0b0;
-  color: #7a5200;
-}
+.tt-row.is-ceremony .tt-content { background: #fffbea; }
+.tt-row.is-ceremony .tt-event { color: #7a5200; font-weight: 700; }
+.tt-row.is-ceremony .tt-time { background: #fff0b0; color: #7a5200; border-right-color: #ffd966; }
 /* 出店ブース紹介・PR・告知 */
-.tt-row.is-booth .tt-content {
-  background: #fff;
-  color: #555;
-}
+.tt-row.is-booth .tt-content { background: #fff; }
+.tt-row.is-booth .tt-event { color: #555; }
 /* 観光大使ステージ */
-.tt-row.is-kanko .tt-content {
-  background: #f0f4ff;
-  color: #1a3a6e;
-  font-weight: 600;
-}
-.tt-row.is-kanko .tt-time {
-  background: #dbe4ff;
-  color: #1a3a6e;
-}
+.tt-row.is-kanko .tt-content { background: #f0f4ff; }
+.tt-row.is-kanko .tt-event { color: #1a3a6e; font-weight: 600; }
+.tt-row.is-kanko .tt-time { background: #dbe4ff; color: #1a3a6e; border-right-color: #b0c8ff; }
 @media screen and (max-width: 768px) {
-  .tt-days {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
+  #stage-timetable .tt-days {
+    flex-direction: column !important;
   }
-  .tt-time {
-    min-width: 60px;
-    width: 60px;
+  #stage-timetable .tt-day {
+    width: 100% !important;
+    flex: none !important;
+  }
+  .tt-time, .tt-sh-time {
+    min-width: 66px;
+    width: 66px;
     font-size: 1.2rem;
-    padding: 0.7rem 0.2rem;
+    padding: 0.7rem 0.3rem;
   }
-  .tt-content {
-    font-size: 1.3rem;
-    padding: 0.7rem 0.8rem;
-  }
-  .tt-row.is-stage .tt-content {
-    font-size: 1.4rem;
-  }
+  .tt-event { font-size: 1.3rem; }
+  .tt-row.is-stage .tt-event { font-size: 1.4rem; }
+  .tt-date-num { font-size: 3.2rem; }
+  .tt-dow { font-size: 1.6rem; }
 }
