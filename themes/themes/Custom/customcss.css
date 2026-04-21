@@ -1763,3 +1763,128 @@ flex-direction: column-reverse !important;
     text-align: left;
   }
 }
+
+/* ===========================
+   ステージタイムテーブル
+=========================== */
+#stage-timetable {
+  width: 100%;
+  margin: 2rem 0;
+}
+.tt-days {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  width: 100%;
+}
+.tt-day-header {
+  background: #1a4a2e;
+  color: #fff;
+  padding: 1rem 1.2rem;
+  text-align: center;
+  border-radius: 6px 6px 0 0;
+}
+.tt-date {
+  display: block;
+  font-size: 2.4rem;
+  font-family: "Kaisei Decol", serif;
+  font-weight: 700;
+}
+.tt-stage-label {
+  display: block;
+  font-size: 1.3rem;
+  opacity: 0.85;
+  margin-top: 0.3rem;
+}
+.tt-body {
+  border: 2px solid #1a4a2e;
+  border-top: none;
+  border-radius: 0 0 6px 6px;
+  overflow: hidden;
+}
+.tt-row {
+  display: flex;
+  align-items: stretch;
+  border-bottom: 1px solid #ddd;
+}
+.tt-row:last-child {
+  border-bottom: none;
+}
+.tt-time {
+  min-width: 72px;
+  width: 72px;
+  padding: 0.9rem 0.4rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #444;
+  background: #f5f5f5;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid #ccc;
+  flex-shrink: 0;
+}
+.tt-content {
+  padding: 0.9rem 1.2rem;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  line-height: 1.4;
+}
+/* ステージ演目 */
+.tt-row.is-stage .tt-content {
+  background: #e8f7e9;
+  font-weight: 700;
+  color: #1a4a2e;
+  font-size: 1.6rem;
+}
+.tt-row.is-stage .tt-time {
+  background: #c6eccb;
+  color: #1a4a2e;
+}
+/* 開会式・閉会式 */
+.tt-row.is-ceremony .tt-content {
+  background: #fffbea;
+  color: #7a5200;
+  font-weight: 700;
+}
+.tt-row.is-ceremony .tt-time {
+  background: #fff0b0;
+  color: #7a5200;
+}
+/* 出店ブース紹介・PR・告知 */
+.tt-row.is-booth .tt-content {
+  background: #fff;
+  color: #555;
+}
+/* 観光大使ステージ */
+.tt-row.is-kanko .tt-content {
+  background: #f0f4ff;
+  color: #1a3a6e;
+  font-weight: 600;
+}
+.tt-row.is-kanko .tt-time {
+  background: #dbe4ff;
+  color: #1a3a6e;
+}
+@media screen and (max-width: 768px) {
+  .tt-days {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .tt-time {
+    min-width: 60px;
+    width: 60px;
+    font-size: 1.2rem;
+    padding: 0.7rem 0.2rem;
+  }
+  .tt-content {
+    font-size: 1.3rem;
+    padding: 0.7rem 0.8rem;
+  }
+  .tt-row.is-stage .tt-content {
+    font-size: 1.4rem;
+  }
+}
