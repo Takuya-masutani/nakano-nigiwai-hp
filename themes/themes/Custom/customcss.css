@@ -1310,11 +1310,11 @@ flex-direction: column-reverse !important;
   min-height: 4.5rem;
 }
 #booth_ws > div .comment{
-  flex-grow: 1;
+  flex-grow: 0;
 }
 #booth_ws > div ul {
   flex-shrink: 0;
-  min-height: 7rem;
+  margin-top: auto;
 }
 #booth_ws > div ul li {
   font-size: 0.95em;
