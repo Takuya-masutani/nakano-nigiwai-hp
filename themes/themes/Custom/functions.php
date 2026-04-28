@@ -14,7 +14,7 @@ add_action( 'wp_enqueue_scripts', 'hestia_child_parent_css');
 
 // customcss.css を so-css-hestia.css（wp_footer で読み込まれる）より後に出力
 function custom_load_customcss() {
-    echo '<link rel="stylesheet" href="' . esc_url( get_stylesheet_directory_uri() . '/customcss.css' ) . '?v=14">' . "\n";
+    echo '<link rel="stylesheet" href="' . esc_url( get_stylesheet_directory_uri() . '/customcss.css' ) . '?v=15">' . "\n";
 }
 add_action( 'wp_footer', 'custom_load_customcss', 999 );
 
