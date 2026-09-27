@@ -1959,3 +1959,8 @@ flex-direction: column-reverse !important;
   .tt-date-num { font-size: 3.2rem; }
   .tt-dow { font-size: 1.6rem; }
 }
+/* リンクをマウスでクリックした時に出る枠（bootstrap の a:focus の outline）を消す。
+   Tabキー操作の時（:focus-visible）は枠を残す＝キーボード利用者が現在地を見失わないように */
+a:focus:not(:focus-visible){
+		outline: none;
+}
