@@ -42,3 +42,4 @@
 - 対応：`customcss.css` の `.slide-img img` に `min-height: 0` を追加して打ち消し（customcss.css は so-css より後に読まれる）。
 - 注意：SiteOrigin CSS 側（WP管理画面 → 外観 → カスタムCSS）にも同じ古い指定が残っている。
   リポジトリ外なので、KVまわりを変えるときは両方を確認すること。
+- CSSのキャッシュ対策：`functions.php` で customcss.css の `?v=` を固定値(18)からファイル更新時刻に変更。以後、手で番号を上げる必要なし。
