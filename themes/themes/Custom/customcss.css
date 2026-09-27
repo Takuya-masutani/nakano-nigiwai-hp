@@ -1124,6 +1124,7 @@ flex-direction: column-reverse !important;
 .slide-img img{
 		width: 100%;
 		height: 100%;
+		min-height: 0; /* WP管理画面の SiteOrigin CSS にある min-height:500px（PC幅）を打ち消す。残すと幅1350px未満のPCで拡大されて見切れる */
 		object-fit: cover;
 		display: block;
 		transform: translateZ(0);
