@@ -1964,3 +1964,18 @@ flex-direction: column-reverse !important;
 a:focus:not(:focus-visible){
 		outline: none;
 }
+
+/* スマホ（767px以下）の pick up カードを大きく：2列で画面幅いっぱいに使う。
+   SiteOrigin CSS 側の「#pick-upf a{ width:130px }」を上書き */
+@media screen and (max-width: 767px){
+		#pick-upf .grid3{
+				gap: 12px !important;
+				padding: 0;
+		}
+		#pick-upf .grid3 > div{
+				width: calc(50% - 6px);
+		}
+		#pick-upf .grid3 a{
+				width: 100%;
+		}
+}

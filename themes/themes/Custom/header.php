@@ -63,7 +63,7 @@ if ( (bool) $hide_top_bar === false ) {
 	<script>
 	jQuery( function( $ ) {
 		$( 'a[href^="#"]' ).SmoothScroll( {
-			duration: 2000,
+			duration: 500,
 			offset: 70,
 			easing  : 'easeOutQuint'
 		} );
