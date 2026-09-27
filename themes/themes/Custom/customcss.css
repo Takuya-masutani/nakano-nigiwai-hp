@@ -1077,9 +1077,10 @@ flex-direction: column-reverse !important;
   }
 }
 /* スライダー */
+/* 100vw だとスクロールバー幅ぶん左右がはみ出して画像が見切れるので、親(#kv)の幅に合わせる */
 .wrap{
-		margin: 0 calc(50% - 50vw);
-		max-width: 100vw;
+		margin: 0;
+		max-width: 100%;
 		position: relative;
 		overflow: hidden;
 }
