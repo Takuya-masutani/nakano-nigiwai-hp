@@ -67,3 +67,6 @@
 - 2026-09-27 ページ内リンクのスクロールを速く：`header.php` の SmoothScroll の duration を 2000 → 500（ms）。
 - 2026-09-27 スマホの pick up カードを拡大：`customcss.css` に 767px以下で2列・各約半分幅（130px固定を上書き）を追加。
   ※`customcss.css` 内にも SiteOrigin CSS と同じ `#pick-upf` の指定が既にあるので、上書きはファイル末尾に置くこと。
+- 2026-09-27 スマホでカードをタップしてから動き出すまでラグがあるため、ページ内スクロールを jquery.SmoothScroll（JSで1コマずつ動かす）から
+  ブラウザ標準の `window.scrollTo({behavior:'smooth'})` に置き換え（`header.php`）。固定ヘッダー分 70px 上にずらす点は同じ。
+  速さはブラウザ任せ（調整不可）。jquery.smoothScroll.js / easing の読み込みは残してあるが、もう使っていない。

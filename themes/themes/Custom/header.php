@@ -61,11 +61,19 @@ if ( (bool) $hide_top_bar === false ) {
 	<link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol&family=Kaisei+Opti&family=Mochiy+Pop+One&family=Yusei+Magic&display=swap" rel="stylesheet">
 
 	<script>
+	// ページ内リンク：ブラウザ標準のスムーススクロールで移動（旧 jquery.SmoothScroll はスマホでタップ後に動き出すまでラグがあったため置き換え）
+	// 70 = 固定ヘッダーの高さぶん上にずらす
 	jQuery( function( $ ) {
-		$( 'a[href^="#"]' ).SmoothScroll( {
-			duration: 500,
-			offset: 70,
-			easing  : 'easeOutQuint'
+		$( 'a[href^="#"]' ).not( '[data-toggle], [data-slide], [data-slide-to]' ).on( 'click', function( e ) {
+			var hash = this.hash;
+			if ( ! hash ) return;
+			var target = document.getElementById( decodeURIComponent( hash.slice( 1 ) ) );
+			if ( ! target ) return;
+			e.preventDefault();
+			var top = target.getBoundingClientRect().top + window.pageYOffset - 70;
+			var reduce = window.matchMedia && window.matchMedia( '(prefers-reduced-motion: reduce)' ).matches;
+			window.scrollTo( { top: top, behavior: reduce ? 'auto' : 'smooth' } );
+			if ( history.pushState ) history.pushState( null, '', hash );
 		} );
 	} );
 	</script>
