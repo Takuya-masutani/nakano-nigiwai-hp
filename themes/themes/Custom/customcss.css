@@ -1979,3 +1979,23 @@ a:focus:not(:focus-visible){
 				width: 100%;
 		}
 }
+
+/* pick up カード：画像の黒いかぶせ（figure::after）をやめ、文字を下部の緑の帯にする（2026-10 変更） */
+#pick-upf .grid3 figure::after{
+		display: none;
+}
+#pick-upf .grid3 figcaption{
+		top: auto;
+		bottom: 0;
+		left: 0;
+		transform: none;
+		width: 100%;
+		background: rgba(20, 138, 17, 0.9);
+		color: #fff;
+		padding: 0.6em 0.5em;
+}
+@media screen and (max-width: 767px){
+		#pick-upf .grid3 figcaption{
+				padding: 0.4em 0.3em;
+		}
+}
