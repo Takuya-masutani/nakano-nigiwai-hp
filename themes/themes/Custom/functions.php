@@ -79,7 +79,7 @@ function custom_post_slider_shortcode() {
     // 投稿クエリ
     $args = array(
         'post_type' => 'post',
-        'posts_per_page' => 30, // 表示する投稿数（調整してOK）
+        'posts_per_page' => 6, // 表示する投稿数（新しい順。2026-10 に30→6）
         'category_name' => '2026aw,2026春', // ← ここでカテゴリを限定（カンマ区切り＝いずれか。2026aw＝2026秋のスラッグ）
     );
     $the_query = new WP_Query($args);
